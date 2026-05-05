@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taksi Albania</title>
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    background: #FFC107; /* e verdhë elegante */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: #222;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/0/03/TAXI.jpg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #FFC107;
+    color: black;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e0a800;
+    transform: scale(1.05);
+}
+
+/* SEKSIONE */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* SERVICES */
+.services {
+    background: #f9f9f9;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.card:hover {
+    transform: scale(1.08);
+}
+
+/* FORM */
+.form-section {
+    background: #222;
+    color: white;
+}
+
+input, select {
+    padding: 12px;
+    margin: 10px;
+    width: 260px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* FOOTER */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* FLOAT BUTTONS */
+.float-btn {
+    position: fixed;
+    right: 20px;
+    padding: 15px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.whatsapp {
+    bottom: 80px;
+    background: #25D366;
+}
+
+.phone {
+    bottom: 20px;
+    background: #007BFF;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input, select {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚕 Taksi Albania</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Shërbimet</a>
+        <a href="#reserve">Rezervo</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <h2>Shërbim Taksi në gjithë Shqipërinë</h2>
+    <p>Shpejtësi • Siguri • Komfort</p>
+    <button class="btn" onclick="callNow()">📞 Telefono Tani</button>
+    <button class="btn" onclick="openWhatsApp()">💬 WhatsApp</button>
+</section>
+
+<!-- SHERBIME -->
+<section id="services" class="services">
+    <h2>Shërbimet tona</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Transport në qytet</h3>
+            <p>Shërbim i shpejtë në çdo qytet</p>
+        </div>
+
+        <div class="card">
+            <h3>Aeroport</h3>
+            <p>Transferte nga dhe për në aeroport</p>
+        </div>
+
+        <div class="card">
+            <h3>Udhëtime të gjata</h3>
+            <p>Komoditet maksimal për distanca të gjata</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- REZERVO -->
+<section id="reserve" class="form-section">
+    <h2>Rezervo një taksi</h2>
+
+    <input type="text" id="name" placeholder="Emri juaj"><br>
+    <input type="text" id="phone" placeholder="Numri telefonit"><br>
+    <input type="text" id="location" placeholder="Vendndodhja"><br>
+
+    <select id="service">
+        <option>Transport qyteti</option>
+        <option>Aeroport</option>
+        <option>Udhëtim i gjatë</option>
+    </select><br>
+
+    <button class="btn" onclick="submitForm()">Dërgo kërkesën</button>
+</section>
+
+<footer>
+    <p>© 2026 Taksi Albania | +355 69 000 0000</p>
+</footer>
+
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/355690000000" class="float-btn whatsapp" target="_blank">💬</a>
+<a href="tel:+355690000000" class="float-btn phone">📞</a>
+
+<script>
+
+function callNow() {
+    window.location.href = "tel:+355690000000";
+}
+
+function openWhatsApp() {
+    window.open("https://wa.me/355690000000", "_blank");
+}
+
+function submitForm() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let location = document.getElementById("location").value;
+    let service = document.getElementById("service").value;
+
+    if(name === "" || phone === "" || location === "") {
+        alert("Ju lutem plotësoni të gjitha fushat!");
+        return;
+    }
+
+    let message = `Pershendetje, jam ${name}. Dua nje taksi.\nVendndodhja: ${location}\nSherbimi: ${service}\nTel: ${phone}`;
+
+    let url = "https://wa.me/355690000000?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
